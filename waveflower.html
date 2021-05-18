@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wave flower</title>
+    <link rel="icon" href="/images/flower.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        html {
+            font-size: 10px;
+        }
+
+        a:hover,
+        a:visited,
+        a:focus,
+        a:active,
+        a.active {
+            text-decoration: none;
+        }
+
+        ul,
+        ol,
+        li {
+            list-style-position: inside;
+            list-style: none;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: #000;
+            font-size: 14px;
+            background-color: #fff;
+            line-height: 1.4;
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-light {
+            color: #000;
+        }
+
+        .bg-light {
+            background-color: #fff !important;
+        }
+
+        .navbar {
+            width: 100%;
+            z-index: 100;
+            position: fixed;
+            box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.06);
+        }
+
+        .nav-item {
+            margin: 8px 10px;
+        }
+
+        a {
+            color: rgba(32, 32, 32, 0.938);
+        }
+
+        .nav-lebel {
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 14px;
+            display: inline-block;
+            line-height: 1.8em;
+        }
+
+        a:hover {
+            color: rgba(225, 192, 142, 0.824);
+        }
+
+        .nv-action-menu {
+            justify-content: flex-end;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+
+        }
+
+        .nv-action-menu ul {
+            text-align: right;
+        }
+
+
+
+
+
+
+        #carouselExampleControls {
+            padding-top: 150px;
+        }
+
+        .carousel-item img {
+            vertical-align: middle;
+        }
+
+        .icon-home {
+            margin: 0 10.5px;
+            padding-right: 3px;
+            width: 25px;
+            height: 25px;
+        }
+
+        svg:hover {
+            fill: rgba(225, 192, 142, 0.824);
+        }
+
+        .logo-container img {
+            max-width: 180px;
+            max-height: 104px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            white-space: nowrap;
+        }
+
+        img {
+            max-width: 100%;
+            vertical-align: middle;
+        }
+
+        .navbar-nav {
+            flex-wrap: wrap;
+        }
+
+        .navbar-expand-lg .navbar-collapse {
+            /* display: flex; */
+            justify-content: space-between;
+        }
+
+        .about.container {
+            overflow: auto;
+            padding: 0 15px;
+            width: 100%;
+            /* width: 60%; */
+            margin: 0 auto;
+        }
+
+        .about.row {
+            padding: 15px;
+            margin: 0 25px;
+        }
+
+        .about-title {
+            padding-left: 10px;
+        }
+
+        .about-title p {
+            font-weight: bold;
+            font-size: 24px;
+            letter-spacing: 0;
+            line-height: 1.33;
+            color: #000000;
+            text-transform: none;
+            padding: 10px 0px 12px 0px;
+        }
+
+        .about-item {
+            padding: 0 15px;
+            /* margin: 0 auto; */
+            margin-bottom: 2%;
+        }
+
+        .about-content {
+            font-size: 16px;
+            color: #000;
+            line-height: 1.8;
+        }
+
+        .milkflower.container {
+            overflow: auto;
+            padding: 0 15px;
+            width: 100%;
+            margin: 0 auto;
+
+        }
+
+        .milkflower img {
+            padding: 0 10px;
+            width: 100%;
+            height: auto;
+        }
+
+        .label {
+            padding-left: 10px;
+        }
+
+        .milk-content {
+            font-size: 16px;
+            color: rgb(85, 85, 85);
+            line-height: 1.8;
+        }
+
+        .milkflower-title p {
+            margin: 20px auto;
+            text-align: center;
+            font-weight: 400;
+            font-size: 30px;
+            line-height: 1.2;
+            color: #000000;
+        }
+
+        .product {
+            display: flex;
+            width: 75%;
+            height: auto;
+            margin: 0 auto;
+            /* border: 1px solid black; */
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+
+        }
+
+        .info-box {
+            max-width: 100%;
+            margin: 0 auto;
+            display: block;
+            flex-wrap: wrap;
+            padding: 10px 10px;
+        }
+
+        .item-title {
+            overflow: hidden;
+            /* text-align: center; */
+            flex-wrap: wrap;
+            line-height: 1.5;
+            font-weight: 400;
+            font-size: 14px;
+            color: black;
+            margin: 0 0 2px;
+        }
+
+        .price {
+            /* text-align: center; */
+            font-weight: 600;
+            line-height: 1.5;
+            font-size: 14px;
+            margin: 0 auto;
+            padding-left: 0px;
+        }
+
+        .integrate.row {
+            display: flex;
+            margin-bottom: 2%;
+        }
+
+        .address {
+            font-family: "Montserrat", "Noto Sans TC", sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            letter-spacing: 0;
+            line-height: 1.8;
+            color: #000000;
+            flex-wrap: wrap;
+        }
+
+        .address-title {
+            font-size: 24px;
+            color: #000;
+            line-height: 1.8;
+            font-weight: 700;
+        }
+
+        .address-name a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #337ab7;
+
+        }
+
+        .address-name a:hover {
+            color: #296294;
+        }
+
+        .address-name {
+            font-size: 18px;
+            color: black;
+
+        }
+
+        .mixing-box {
+            display: flex;
+            /* justify-content: space-around; */
+        }
+
+        .video-address {
+            flex-grow: 1;
+            /* width: 40%; */
+            padding: 15px;
+            margin-right: 12px;
+        }
+
+        .instagram {
+            /* position: relative; */
+            /* width: 50%; */
+            flex-wrap: wrap;
+            padding-left: 33px;
+        }
+
+        .instagram-username {
+            display: block;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 400;
+            color: #666;
+            letter-spacing: 2px;
+            line-height: 2.0;
+            margin-bottom: 2%;
+            /* padding-left: 100px; */
+        }
+
+        .igitem-box {
+            /* position: relative; */
+            display: inline-block;
+            vertical-align: top;
+            margin: 0 auto;
+
+        }
+
+        .ig {
+            /* position: absolute; */
+            width: 150px;
+            height: 150px;
+            min-height: 1px;
+            margin-bottom: 2px;
+            margin-right: -2px;
+            vertical-align: top;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .footer {
+            font-family: "Montserrat", "Noto Sans TC", sans-serif;
+            font-weight: 400;
+            font-size: 13px;
+            letter-spacing: 0;
+            line-height: 1.2;
+            overflow: hidden;
+            background: #000;
+            color: #fff;
+            padding: 32px 0;
+            /* display: flex;
+            justify-content: left;
+            flex-direction: column; */
+        }
+
+        .footer-box {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            /* display: flex;
+            flex-direction: column; */
+        }
+
+        .description {
+            padding: 20px 50px;
+            /* display: flex;
+            justify-content: left;
+            flex-direction: column; */
+        }
+
+        .description a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+
+        .space-50 {
+            margin-bottom: 50px;
+        }
+
+        .space-100 {
+            margin-bottom: 100px;
+        }
+
+        .space-20 {
+            margin-bottom: 20px;
+        }
+
+        .icons {
+            opacity: 1;
+            right: 6px;
+            display: block;
+            background: #fff;
+            color: #333;
+            bottom: 6px;
+            left: auto;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #000;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .icons:hover {
+            background-color: #d2bfa6;
+        }
+
+        .milkf1 {
+            position: relative;
+        }
+
+        .icon-home.iconcart {
+            width: 20px;
+            height: 20px;
+            fill: #fff;
+            margin-bottom: -18px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="logo-container">
+            <a class="navbar-brand " href="#">
+                <img src="/images/original-s.png" class="img-fluid" alt="Responsive image">
+            </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ">
+                <li class="nav-item ">
+                    <a class="nav-label" href="#">鮮花 </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-label" href="#">永生花</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-label" href="#">乾燥花</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-label" href="#">酒禮</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-label dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        婚禮系列
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">求婚專案</a>
+                        <a class="dropdown-item" href="#">主題婚禮</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">永生相片桌</a>
+                        <a class="dropdown-item" href="#">捧花、求生花束</a>
+                        <a class="dropdown-item" href="#">婚攝專案</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-label" href="#">場地佈置</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-label" href="#">花藝課程</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-label" href="#">周邊商品</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-label dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        常見問題
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">常見問題Q&A</a>
+                        <a class="dropdown-item" href="#">訂購流程</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">售後服務</a>
+                        <a class="dropdown-item" href="#">商品維護與照顧</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-label" href="#">Facebook</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-label" href="#">Instagram</a>
+                </li>
+
+            </ul>
+            <ul class="nv-action-menu">
+
+                <li class="list-item">
+                    <a href="https://www.wave-flower.com/users/sign_in">
+                        <svg class="icon-home">
+                            <use xlink:href="./icomoon/symbol-defs.svg#icon-person"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="list-itemm">
+                    <a href="https://www.wave-flower.com/users/sign_in">
+                        <svg class="icon-home">
+                            <use xlink:href="./icomoon/symbol-defs.svg#icon-shopping-cart"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://www.wave-flower.com/users/sign_in">
+                        <svg class="icon-home">
+                            <use xlink:href="./icomoon/symbol-defs.svg#icon-message"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="list-itemm">
+                    <a href="https://www.wave-flower.com/users/sign_in">
+                        <svg class="icon-home">
+                            <use xlink:href="./icomoon/symbol-defs.svg#icon-language"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://www.wave-flower.com/users/sign_in">
+                        <svg class="icon-home">
+                            <use xlink:href="./icomoon/symbol-defs.svg#icon-currency"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://www.wave-flower.com/users/sign_in">
+                        <svg class="icon-home">
+                            <use xlink:href="./icomoon/symbol-defs.svg#icon-search"></use>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/images/2400-3.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/2400-4.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/2400-5.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/2400-6.jpg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <div class="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-title">
+                    <div>&nbsp;</div>
+                    <p>關於浪花 About Wave Flower</p>
+                    <span class="about-content">
+                        花
+                        <br>
+                        人與人之間的媒介
+                    </span>
+                    <div>&nbsp;</div>
+                    <span class="about-content">
+                        在時間與空間中傳遞情感
+                        <br>
+                        在情感與情感間創造氛圍
+                    </span>
+                    <div>&nbsp;</div>
+                    <span class="about-content">
+                        我們緩慢浪費著生命中大部分的時間
+                        <br>
+                        琢磨每一朵花葉與生俱來的美好
+                        <br>
+                        我們揮霍著生命裡大多數的情感
+                        <br>
+                        替人訴說每一段愛情無與倫比的重要
+                    </span>
+                    <div>&nbsp;</div>
+                    <span class="about-content">
+                        比起浪漫
+                        <br>
+                        你是否也喜歡放肆的去恨去愛？
+                    </span>
+                </div>
+            </div>
+            <div>&nbsp;</div>
+        </div>
+    </div>
+    <div class="milkflower">
+        <div class="container">
+            <div class="row">
+                <div class="img-container">
+                    <a href="" target="_blank">
+                        <img src="/images/2400x.jpg" class="img-fluid" alt="Responsive image">
+                    </a>
+                </div>
+
+                <div class="label">
+                    <div class="space-20"></div>
+                    <span class="milk-content">
+                        你是否記得
+                        <br>
+                        那年下課我偷塞在你抽屜的棒棒糖
+                    </span>
+                    <div>&nbsp;</div>
+                    <span class="milk-content">
+                        是我青澀的心
+                        <br>
+                        試圖對你傾訴的過往
+                    </span>
+                    <div>&nbsp;</div>
+                    <span class="milk-content">
+                        我想擁有你的愛、你的陪伴
+                        <br>
+                        透過你的喜愛
+                        <div>&nbsp;</div>
+                        <span class="milk-content">
+                            而如今，我們雖已不再迷戀那酸甜
+                            <br>
+                            但這玫瑰卻能讓你明白
+                        </span>
+                        <div>&nbsp;</div>
+                        <span class="milk-content">
+                            自始至終
+                            <br>
+                            我都能證明
+                            <br>
+                            愛情真實的存在
+                        </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="space-50"></div>
+    <div class="milkflower-product">
+        <div class="milkflower-title  ">
+            <p class="text-center">草莓牛奶鮮花系列</p>
+        </div>
+        <div class="space-50"></div>
+        <div class="container">
+            <div class="row">
+                <div class="product-container col-xl-3 col-6">
+                    <div class="product milkf1">
+                        <img src="/images/600milkflower1.jpg" alt="">
+                        <div class="icons">
+                            <svg class="icon-home iconcart">
+                                <use xlink:href="./icomoon/symbol-defs.svg#icon-shopping-cart"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="info-box col-xl-2 col-4">
+                        <div class="item-title text-center">草莓牛奶系列 - 單支玫瑰花束</div>
+                        <div class="price text-center"> NT$190 </div>
+                    </div>
+                </div>
+                <div class="product-container col-xl-3 col-6">
+                    <div class="product milkf1">
+                        <img src="/images/600milkflower2.jpg" alt="">
+                        <div class="icons">
+                            <svg class="icon-home iconcart">
+                                <use xlink:href="./icomoon/symbol-defs.svg#icon-shopping-cart"></use>
+                            </svg>
+                        </div>
+
+                    </div>
+                    <div class="info-box col-xl-2 col-4">
+                        <div class="item-title text-center">草莓牛奶系列 - 玫瑰花束</div>
+                        <div class="price text-center "> NT$1,880 </div>
+                    </div>
+                </div>
+                <div class="product-container col-xl-3 col-6">
+                    <div class="product milkf1">
+                        <img src="/images/600milkflower3.jpg" alt="">
+                        <div class="icons">
+                            <svg class="icon-home iconcart">
+                                <use xlink:href="./icomoon/symbol-defs.svg#icon-shopping-cart"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="info-box col-xl-2 col-4">
+                        <div class="item-title text-center">草莓牛奶系列 - 玫瑰圓花盒</div>
+                        <div class="price text-center"> NT$3580 </div>
+                    </div>
+                </div>
+                <div class="product-container col-xl-3 col-6">
+                    <div class="product milkf1">
+                        <img src="/images/600milkflower4.jpg" alt="">
+                        <div class="icons">
+                            <svg class="icon-home iconcart">
+                                <use xlink:href="./icomoon/symbol-defs.svg#icon-shopping-cart"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="info-box col-xl-2 col-4">
+                        <div class="item-title text-center">草莓牛奶系列 - 玫瑰鬱金香花束</div>
+                        <div class="price text-center "> NT$4580 </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="space-100"></div>
+    <div class="milkflower">
+        <div class="container">
+            <div class="row">
+                <div class="img-container">
+                    <a href="" target="_blank">
+                        <img src="/images/2400-6.jpg" class="img-fluid" alt="Responsive image">
+                    </a>
+                </div>
+                <div class="label">
+                    <div class="space-20"></div>
+                    <span class="milk-content">
+                        紅之所以經典
+                        <br>
+                        是它鮮明的訴說
+                    </span>
+                    <div>&nbsp;</div>
+                    <span class="milk-content">
+                        如同你那顆炙熱的心
+                        <br>
+                        滿腔熱血
+                        <br>
+                        一股腦地想把心意全都傳達
+                    </span>
+                    <div>&nbsp;</div>
+                    <span class="milk-content">
+                        如同著是你熱情的唇
+                        <br>
+                        鮮紅欲滴
+                        <br>
+                        急欲將情意湧上覆蓋那方
+                        <div>&nbsp;</div>
+                        <span class="milk-content">
+                            著急
+                            <br>
+                            可又那麼真誠
+                        </span>
+                        <div>&nbsp;</div>
+                        <span class="milk-content">
+                            真誠的使他識別
+                            <br>
+                            在人群裡誰為他傾心著
+
+                        </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="space-50"></div>
+    <div class="milkflower-product">
+        <div class="milkflower-title  ">
+            <p class="text-center">經典紅系列</p>
+        </div>
+        <div class="space-50"></div>
+        <div class="container">
+            <div class="row">
+                <div class="product-container col-xl-3 col-6">
+                    <div class="product milkf1">
+                        <img src="/images/red-1.jpg" alt="">
+                        <div class="icons">
+                            <svg class="icon-home iconcart">
+                                <use xlink:href="./icomoon/symbol-defs.svg#icon-shopping-cart"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="info-box col-xl-3 col-6">
+                        <div class="item-title text-center">經典紅玫瑰愛心花束（三束）</div>
+                        <div class="price text-center"> NT$1170 </div>
+                    </div>
+                </div>
+                <div class="product-container col-xl-3 col-6">
+                    <div class="product milkf1">
+                        <img src="/images/red-2.jpg" alt="">
+                        <div class="icons">
+                            <svg class="icon-home iconcart">
+                                <use xlink:href="./icomoon/symbol-defs.svg#icon-shopping-cart"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <div class="item-title text-center">經典紅鬱金香花束</div>
+                        <div class="price text-center"> NT$1,380 </div>
+                    </div>
+                </div>
+                <div class="product-container col-xl-3 col-6">
+                    <div class="product milkf1">
+                        <img src="/images/red-3.jpg" alt="">
+                        <div class="icons">
+                            <svg class="icon-home iconcart">
+                                <use xlink:href="./icomoon/symbol-defs.svg#icon-shopping-cart"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <div class="item-title text-center">經典紅玫瑰花束 - 小</div>
+                        <div class="price text-center"> NT$1980 </div>
+                    </div>
+                </div>
+                <div class="product-container col-xl-3 col-6">
+                    <div class="product milkf1">
+                        <img src="/images/red-4.jpg" alt="">
+                        <div class="icons">
+                            <svg class="icon-home iconcart">
+                                <use xlink:href="./icomoon/symbol-defs.svg#icon-shopping-cart"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <div class="item-title text-center">經典紅玫瑰花束 - 大</div>
+                        <div class="price text-center"> NT$2780 </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="space-100"></div>
+    <div class="integrate">
+        <div class="container ">
+            <div class="row  ">
+                <div class="mixing-box col-xl-6 col-12 ">
+                    <div class="video-address  ">
+                        <div class="video embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/D1qaz71mAjA"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="address  ">
+
+                            <p>&nbsp;</p>
+                            <p>
+                                <span class="address-title">
+                                    Wave Flower 浪花
+                                </span>
+                            </p>
+                            <p>
+                                <span class="address-name">
+                                    <a href="https://goo.gl/maps/ur8o1DJAKFLxBpX97">
+                                        <span>106 台北市大安區和平東路三段119巷16號</span>
+                                    </a>
+                                    <br>
+                                    No. 16, Ln. 119, Sec. 3, Heping E. Rd., Da’an Dist., Taipei City 106, Taiwan
+                                </span>
+                            </p>
+                            <p>&nbsp;</p>
+                            <p>
+                                <span style="font-size: 18px;">
+                                    11：00 a.m. - 7：00 p.m.（週日公休 Sunday Off）
+                                    <br>
+                                    TEL : 0958-571-389
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="instagram  col-12 col-xl-6">
+                    <div class="container ">
+                        <div class="row">
+                            <div class="instagram-title col-12 col-xl-10 ">
+                                <span class="instagram-username ">wave_flower</span>
+                            </div>
+
+                            <div class="instagram-item ">
+                                <div class="igitem-box">
+                                    <div class="ig" style="background: url(/images/ig-1.jpg) center center no-repeat;">
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                                <div class="igitem-box">
+                                    <div class="ig" style="background: url(/images/ig-2.jpg) center center no-repeat;">
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                                <div class="igitem-box">
+                                    <div class="ig" style="background: url(/images/ig-3.jpg) center center no-repeat;">
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                                <div class="igitem-box">
+                                    <div class="ig" style="background: url(/images/ig-4.jpg) center center no-repeat;">
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                                <div class="igitem-box">
+                                    <div class="ig" style="background: url(/images/ig-5.jpg) center center no-repeat;">
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                                <div class="igitem-box">
+                                    <div class="ig" style="background: url(/images/ig-6.jpg) center center no-repeat;">
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                                <div class="igitem-box">
+                                    <div class="ig" style="background: url(/images/ig-7.jpg) center center no-repeat;">
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                                <div class="igitem-box">
+                                    <div class="ig" style="background: url(/images/ig-8.jpg) center center no-repeat;">
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                                <div class="igitem-box">
+                                    <div class="ig" style="background: url(/images/ig-9.jpg) center center no-repeat;">
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                                <div class="igitem-box">
+                                    <div class="ig" style="background: url(/images/ig-10.jpg) center center no-repeat;">
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                                <div class="igitem-box">
+                                    <div class="ig" style="background: url(/images/ig-11.jpg) center center no-repeat;">
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                                <div class="igitem-box">
+                                    <div class="ig" style="background: url(/images/ig-12.jpg) center center no-repeat;">
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    </div>
+    </div>
+    <div class="space-100"></div>
+    <div class="footer">
+        <div class="footer-box">
+            <div class="description">
+                <!-- <span style="font-size: 18px;"> -->
+                <p><a href="https://www.wave-flower.com/pages/privacyterms">網站約定條款</a></p>
+                <br>
+                <p><a href="https://www.wave-flower.com/pages/orderprocess">訂購流程</a></p>
+                <br>
+                <p><a href="https://www.wave-flower.com/pages/flower-care-guidess">商品維護與照顧</a></p>
+                <br>
+                <p><a href="https://www.wave-flower.com/pages/aftersalesservice">售後服務</a></p>
+                <!-- </span> -->
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
